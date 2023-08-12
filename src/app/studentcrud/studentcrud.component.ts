@@ -22,7 +22,7 @@ export class StudentcrudComponent implements OnInit {
   }
 
   getAllStudent() {
-    this.http.get("http://localhost:8000/user/getAll")
+    this.http.get("https://first-app-backend.onrender.com/user/getAll")
       .subscribe((resultData: any) => {
         console.log(resultData);
         this.StudentArray = resultData.data;
@@ -43,7 +43,7 @@ export class StudentcrudComponent implements OnInit {
       "phone": this.phone,
     };
 
-    this.http.patch("http://localhost:8000/user/update" + "/" + this.currentStudentID, bodyData)
+    this.http.patch("https://first-app-backend.onrender.com/user/update" + "/" + this.currentStudentID, bodyData)
       .subscribe((resultData: any) => {
         console.log(resultData);
         alert("Student Updated");
@@ -52,7 +52,7 @@ export class StudentcrudComponent implements OnInit {
   }
 
   setDelete(data: any) {
-    this.http.delete("http://localhost:8000/user/delete" + "/" + data._id)
+    this.http.delete("https://first-app-backend.onrender.com/user/delete" + "/" + data._id)
       .subscribe((resultData: any) => {
         console.log(resultData);
         alert("Student Deleted");
@@ -75,7 +75,7 @@ export class StudentcrudComponent implements OnInit {
       "phone": this.phone,
     };
 
-    this.http.post("http://localhost:8000/user/create", bodyData)
+    this.http.post("https://first-app-backend.onrender.com/user/create", bodyData)
       .subscribe((resultData: any) => {
         console.log(resultData);
         alert("Student Registered Successfully");
