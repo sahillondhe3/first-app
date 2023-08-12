@@ -1,0 +1,45 @@
+<div class="container mt-4">
+    <div class="card">
+        <h1>Student Registration</h1>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" class="form-control" id="name" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" id="address" placeholder="Enter Address">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" id="phone" placeholder="Enter Phone">
+            </div>
+            <button type="button" (click)="save()" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <h1>Student Table</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let StudentItem of StudentArray">
+                <td>{{ StudentItem.name | uppercase }}</td>
+                <td>{{ StudentItem.address }}</td>
+                <td>{{ StudentItem.phone }}</td>
+                <td>
+                    <button type="button" class="btn btn-success" (click)="setUpdate(StudentItem)">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="setDelete(StudentItem)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
